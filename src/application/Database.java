@@ -50,13 +50,13 @@ public class Database {
 
             ps.setString(1, app.getFullName());            
             ps.setString(2, app.getAddress());              
-            ps.setInt(3, app.getPhone());                  
+            ps.setString(3, app.getPhone());                  
             ps.setString(4, app.getEmail());               
             ps.setString(5, app.getEducation());          
             ps.setString(6, app.getGender());             
             ps.setString(7, app.getStartDate());          
             ps.setString(8, app.getPosition());           
-            ps.setInt(9, app.getSalary());                 
+            ps.setString(9, app.getSalary());                 
             ps.setString(10, app.getLegal());              
             ps.setString(11, app.getRelative());           
             ps.setString(12, app.getRelativeExplanation()); 

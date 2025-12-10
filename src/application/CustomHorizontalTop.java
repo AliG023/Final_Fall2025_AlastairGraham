@@ -15,7 +15,6 @@ public class CustomHorizontalTop extends HBox {
         setPadding(new Insets(8));
         setAlignment(Pos.CENTER_LEFT);
 
-        // logo on the left
         Image logoImage = new Image(
             getClass().getResourceAsStream("images/daily-grind-logo.png")
         );

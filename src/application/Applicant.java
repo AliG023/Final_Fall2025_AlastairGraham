@@ -3,13 +3,13 @@ package application;
 public class Applicant {
     private String fullName;            
     private String address;               
-    private int phone;                   
+    private String phone;                   
     private String email;                
     private String education;             
     private String gender;                
     private String startDate;             
     private String position;              
-    private int salary;                   
+    private String salary;                   
     private String legal;                 
     private String relative;              
     private String relativeExplanation;   
@@ -19,13 +19,13 @@ public class Applicant {
 
     public Applicant(String fullName,
                      String address,
-                     int phone,
+                     String phone,
                      String email,
                      String education,
                      String gender,
                      String startDate,
                      String position,
-                     int salary,
+                     String salary,
                      String legal,
                      String relative,
                      String relativeExplanation) {
@@ -50,8 +50,8 @@ public class Applicant {
     public void setAddress(String address) {
         this.address = address;
     }
-    public void setPhone(int phone) {
-        this.phone = phone;
+    public void setPhone(String phone) { 
+        this.phone = phone; 
     }
     public void setEmail(String email) {
         this.email = email;
@@ -68,7 +68,7 @@ public class Applicant {
     public void setPosition(String position) {
         this.position = position;
     }
-    public void setSalary(int salary) {
+    public void setSalary(String salary) {
         this.salary = salary;
     }
     public void setLegal(String legal) {
@@ -88,8 +88,8 @@ public class Applicant {
     public String getAddress() {
         return address;
     }
-    public int getPhone() {
-        return phone;
+    public String getPhone() { 
+        return phone; 
     }
     public String getEmail() {
         return email;
@@ -106,7 +106,7 @@ public class Applicant {
     public String getPosition() {
         return position;
     }
-    public int getSalary() {
+    public String getSalary() {
         return salary;
     }
     public String getLegal() {

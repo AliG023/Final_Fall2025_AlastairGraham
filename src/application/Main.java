@@ -217,7 +217,7 @@ public class Main extends Application {
 		scene.getStylesheets().add(
     getClass().getResource("application.css").toExternalForm()
 );
-primaryStage.setTitle("ShowBorderPane");
+primaryStage.setTitle("Final Exam | Alastair Graham");
 primaryStage.setScene(scene);
 primaryStage.show();
 	}

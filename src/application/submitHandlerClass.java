@@ -59,49 +59,52 @@ public class submitHandlerClass implements EventHandler<ActionEvent> {
         Applicant applicant = new Applicant();
 
 
-        applicant.setFullName(fullNameField.getText().trim());
+        String fullName = fullNameField.getText().trim();
+        if (!fullName.matches("[A-Za-z ]{1,50}")) {
+            showError("Full name must be letters/spaces only, max 50 characters.");
+            return;
+        }
+        applicant.setFullName(fullName);
+
         applicant.setAddress(currentAddressField.getText().trim());
 
-        int phone = 0;
         String phoneStr = contactNumberField.getText().trim();
-        if (!phoneStr.isEmpty()) {
-            try {
-                phone = Integer.parseInt(phoneStr);
-            } catch (NumberFormatException ex) {
-                showError("Please enter a numeric contact number or leave it blank.");
-                return;
-            }
+        if (!phoneStr.matches("\\d{10}")) {
+            showError("Contact number must be exactly 10 digits.");
+            return;
         }
-        applicant.setPhone(phone);
+
+        applicant.setPhone(phoneStr);
 
         applicant.setEmail(emailField.getText().trim());
 
         String education = educationCombo.getValue();
-        applicant.setEducation(education != null ? education : "");
+        if (education == null) {
+            showError("Please select your highest education.");
+            return;
+        }
+        applicant.setEducation(education);
 
         String gender = getSelectedRadioText(genderBox);
         applicant.setGender(gender);
 
-        // Date Available
-        String startDate = (availablePicker.getValue() != null)
-                ? availablePicker.getValue().toString()
-                : "";
+
+        if (availablePicker.getValue() == null) {
+            showError("Please pick an available start date.");
+            return;
+        }
+        String startDate = availablePicker.getValue().toString();
         applicant.setStartDate(startDate);
 
         applicant.setPosition(positionField.getText().trim());
 
 
-        int salary = 0;
         String salaryStr = salaryField.getText().trim();
-        if (!salaryStr.isEmpty()) {
-            try {
-                salary = Integer.parseInt(salaryStr);
-            } catch (NumberFormatException ex) {
-                showError("Please enter a numeric salary or leave it blank.");
-                return;
-            }
+        if (!salaryStr.matches("\\d{1,8}\\.\\d{2}")) {
+            showError("Salary must be up to 8 digits plus 2 decimals (e.g. 12345678.50).");
+            return;
         }
-        applicant.setSalary(salary);
+        applicant.setSalary(salaryStr);
 
         String legalAnswer = getSelectedRadioText(legalBox);
         applicant.setLegal(legalAnswer);
